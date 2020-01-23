@@ -14,13 +14,13 @@
         <aside>Brand Name</aside>
         <nav>
             <a href="#">Home</a>
-            <a href="#">Contact</a>
-            <a href="#">Sign In</a>
+            <a href="#sign-in" class="_login">Sign In</a>
+            <a href="#register" class="_register">Register</a>
         </nav>
     </header>
     <main>
-        <form action="#">
-            <h3>Register</h3>
+        <form id="register" action="#">
+            <h3>Sign Up</h3>
 
             <div class="form-group">
                 <label for="fullname">Fullname (Firstname first):</label>
@@ -32,7 +32,7 @@
             </div>
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" name="fname" placeholder="Enter Your fullname">
+                <input type="text" name="fname" placeholder="Enter Your username">
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
@@ -44,18 +44,62 @@
             </div>
             <div class="form-group">
                 <label for="gender">Gender:</label>
-                <input type="radio" name="gender" value="male" >Male <br>
+                <input type="radio" name="gender" value="male">Male <br>
                 <input type="radio" name="gender" value="female">Female
             </div>
 
             <div class="form-group">
-                <button onclick="handleSubmit()">Submit</button>
-                <input type="reset" value="Clear">
+                <button id="sign-up">Sign Up</button>
+                <input type="reset" value="Reset">
             </div>
 
-            <p>Have an account? <a href="#">Sign in</a></p>
+            <p>Have an account? <a href="#sign-in" class="_login">Sign in</a></p>
+        </form>
+
+        <form id="sign-in" action="#">
+            <h3>Sign In</h3>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="text" name="fname" placeholder="Enter Your email address">
+            </div>
+            <div class="form-group">
+                <label for="_password">Password:</label>
+                <input type="password" name="_password" id="_password" placeholder="Enter at least 8 characters">
+            </div>
+            <div class="form-group">
+                <button id="login">Sign In</button>
+            </div>
+
+            <p>Don't have an account? <a href="#sign-up" class="_register">Sign Up</a></p>
         </form>
     </main>
 </body>
+<script>
+    // sign up button function
+    let btn = document.getElementById('sign-up');
+    btn.addEventListener('click', function () {
+        event.preventDefault();
+        alert("Thanks for registering, we will get back to you shoertly!")
+    })
+
+    // sign in button function
+    let btn2 = document.getElementById('login');
+    btn2.addEventListener('click', function () {
+        event.preventDefault();
+        alert("Please check back later!")
+    })
+
+// let login_anchor = document.getElementsByClassName('_login')
+
+// console.log(login_anchor)
+
+// let login = document.getElementById('sign-in');
+
+// for(let i=0; i <login_anchor.length; i++){
+//     login_anchor[i].addEventListener('click', function(){
+//        console.log(login.style.height)
+//     })
+// }
+</script>
 
 </html>
