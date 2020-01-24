@@ -9,12 +9,23 @@
   }
 }
 
+@keyframes spin{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
 body {
   background-image: url("../images/images.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
   header {
     height: 50px;
+    width: 100%;
     border-bottom: 1px solid rgba(0, 191, 255, 0.678);
     font-size: 20px;
     font-size: bold;
@@ -22,6 +33,12 @@ body {
     display: flex;
     justify-content: space-between;
     color: white;
+    position: fixed;
+    background-image: url("../images/images.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
     nav {
       text-align: right;
       animation-name: change;
@@ -41,12 +58,36 @@ body {
     align-items: center;
     padding: 50px 7%;
 
+    .container1, .container2{
+      height: 100vh;
+      overflow-y: scroll;
+      padding: 80px 0; 
+    }
+    .container2 {
+      margin-top: 100px;
+    }
+
     form {
       width: 100%;
       padding: 20px;
       border: 1px solid $brand_color;
       background-color: rgba(255, 255, 255, 0.774);
+      margin-bottom: 50px;
 
+      .spin{
+        width: 30px;
+        height: 30px;
+        margin: 0 auto;
+        border: 2px dashed blue;
+        border-right-color: green;
+        border-left-color: red;
+        border-top-color: orange;
+        background-color: transparent;
+        animation-name: spin;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+      }
       h3 {
         text-align: center;
         color: black;
@@ -129,7 +170,7 @@ body {
     }
 
     #sign-in {
-      display: none;
+      display: block;
       height: auto;
     }
   }
