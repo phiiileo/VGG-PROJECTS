@@ -3,7 +3,7 @@
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 a {
@@ -47,6 +47,224 @@ img {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+body {
+  background-image: url("../images/images.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+body header {
+  height: 50px;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 191, 255, 0.678);
+  font-size: 20px;
+  font-size: bold;
+  padding: 20px 7%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: white;
+  position: fixed;
+  background-image: url("../images/images.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body header nav {
+  text-align: right;
+  -webkit-animation-name: change;
+          animation-name: change;
+}
+
+body header nav a {
+  display: inline-block;
+  margin-left: 30px;
+  color: white;
+}
+
+body main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 50px 7%;
+}
+
+body main .container1,
+body main .container2 {
+  height: 100vh;
+  overflow-y: scroll;
+  padding: 80px 0;
+}
+
+body main .container2 {
+  margin-top: 100px;
+}
+
+body main form {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #00ccff;
+  background-color: rgba(255, 255, 255, 0.774);
+  margin-bottom: 50px;
+}
+
+body main form .spin {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  border: 2px dashed blue;
+  border-right-color: green;
+  border-left-color: red;
+  border-top-color: orange;
+  background-color: transparent;
+  -webkit-animation-name: spin;
+          animation-name: spin;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+
+body main form h3 {
+  text-align: center;
+  color: black;
+  padding: 10px 0;
+  font-weight: normal;
+}
+
+body main form .form-group label {
+  display: block;
+  width: auto;
+  font-size: 18px;
+  padding: 10px 0;
+}
+
+body main form .form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  color: gray;
+  border: 1px solid gray;
+}
+
+body main form .form-group input:focus {
+  -webkit-animation-name: animate;
+          animation-name: animate;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+body main form .form-group input:hover {
+  background-color: rgba(191, 210, 216, 0.856);
+}
+
+body main form .form-group input[type="radio"] {
+  width: auto;
+  margin: 10px 20px;
+}
+
+body main form .form-group button {
+  background-color: green;
+  color: white;
+  width: 200px;
+  display: block;
+  border: 1px solid green;
+  padding: 10px 30px;
+  margin: 20px auto;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+body main form .form-group button:hover,
+body main form .form-group input[type="reset"]:hover {
+  background-color: transparent !important;
+  color: green !important;
+  -webkit-transition: background-color 1s;
+  transition: background-color 1s;
+}
+
+body main form .form-group input[type="reset"] {
+  width: 200px;
+  background-color: red;
+  color: white;
+  border: 1px solid red;
+  padding: 10px 30px;
+  display: block;
+  margin: 30px auto;
+  cursor: pointer;
+}
+
+body main form .form-group input[type="reset"]:focus {
+  -webkit-animation-name: none !important;
+          animation-name: none !important;
+}
+
+body main form .form-group input[type="reset"]:hover {
+  color: red !important;
+}
+
+body main form p {
+  font-size: 15px;
+  text-align: center;
+}
+
+body main form p a {
+  color: red;
+}
+
+body main #sign-in {
+  display: block;
+  height: auto;
+}
+
+@media screen and (min-width: 778px) {
+  form {
+    width: 700px !important;
+  }
+}
+
+@keyframes animate {
+  0% {
+    width: 10%;
+  }
+  100% {
+    width: 100%;
   }
 }
 
@@ -173,7 +391,9 @@ body main form .form-group input {
   padding: 10px;
   font-size: 18px;
   color: gray;
-  border: 1px solid gray;
+  border: none;
+  border-bottom: 1px solid gray;
+  background-color: transparent;
 }
 
 body main form .form-group input:focus {

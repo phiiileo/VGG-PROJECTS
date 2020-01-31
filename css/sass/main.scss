@@ -107,7 +107,9 @@ body {
           padding: 10px;
           font-size: 18px;
           color: gray;
-          border: 1px solid gray;
+          border: none;
+          border-bottom: 1px solid gray;
+          background-color: transparent;
         }
         input:focus {
           animation-name: animate;

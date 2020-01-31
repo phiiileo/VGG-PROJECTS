@@ -1,22 +1,203 @@
 $brand_color: rgb(0, 204, 255);
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-a{
-    color: black;
-    text-decoration: none;
+a {
+  color: black;
+  text-decoration: none;
 }
 
-a:hover{
-    color: $brand_color;
-    border-bottom: 1px solid $brand_color;
+a:hover {
+  color: $brand_color;
+  border-bottom: 1px solid $brand_color;
 }
 
-img{
-    object-fit: cover;
+img {
+  object-fit: cover;
+}
+@keyframes animate {
+  0% {
+    width: 10%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  background-image: url("../images/images.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  header {
+    height: 50px;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 191, 255, 0.678);
+    font-size: 20px;
+    font-size: bold;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    position: fixed;
+    background-image: url("../images/images.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    nav {
+      text-align: right;
+      animation-name: change;
+
+      a {
+        display: inline-block;
+        margin-left: 30px;
+        color: white;
+      }
+    }
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 7%;
+
+    .container1,
+    .container2 {
+      height: 100vh;
+      overflow-y: scroll;
+      padding: 80px 0;
+    }
+    .container2 {
+      margin-top: 100px;
+    }
+
+    form {
+      width: 100%;
+      padding: 20px;
+      border: 1px solid $brand_color;
+      background-color: rgba(255, 255, 255, 0.774);
+      margin-bottom: 50px;
+
+      .spin {
+        width: 30px;
+        height: 30px;
+        margin: 0 auto;
+        border: 2px dashed blue;
+        border-right-color: green;
+        border-left-color: red;
+        border-top-color: orange;
+        background-color: transparent;
+        animation-name: spin;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+      }
+      h3 {
+        text-align: center;
+        color: black;
+        padding: 10px 0;
+        font-weight: normal;
+      }
+
+      .form-group {
+        label {
+          display: block;
+          width: auto;
+          font-size: 18px;
+          padding: 10px 0;
+        }
+        input {
+          width: 100%;
+          padding: 10px;
+          font-size: 18px;
+          color: gray;
+          border: 1px solid gray;
+        }
+        input:focus {
+          animation-name: animate;
+          animation-duration: 1.5s;
+          animation-iteration-count: 1;
+          animation-timing-function: ease-in;
+          animation-play-state: running;
+        }
+        input:hover {
+          background-color: rgba(191, 210, 216, 0.856);
+        }
+        input[type="radio"] {
+          width: auto;
+          margin: 10px 20px;
+        }
+
+        button {
+          background-color: green;
+          color: white;
+          width: 200px;
+          display: block;
+          border: 1px solid green;
+          padding: 10px 30px;
+          margin: 20px auto;
+          font-size: 20px;
+          cursor: pointer;
+        }
+        button:hover,
+        input[type="reset"]:hover {
+          background-color: transparent !important;
+          color: green !important;
+          transition: background-color 1s;
+        }
+
+        input[type="reset"] {
+          width: 200px;
+          background-color: red;
+          color: white;
+          border: 1px solid red;
+          padding: 10px 30px;
+          display: block;
+          margin: 30px auto;
+          cursor: pointer;
+        }
+        input[type="reset"]:focus {
+          animation-name: none !important;
+        }
+        input[type="reset"]:hover {
+          color: red !important;
+        }
+      }
+      p {
+        font-size: 15px;
+        text-align: center;
+
+        a {
+          color: red;
+        }
+      }
+    }
+
+    #sign-in {
+      display: block;
+      height: auto;
+    }
+  }
+}
+
+@media screen and (min-width: 778px) {
+  form {
+    width: 700px !important;
+  }
 }
