@@ -332,13 +332,15 @@ body main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 50px 7%;
+  padding: 50px 5%;
+  background-color: rgba(105, 71, 71, 0.377);
 }
 
 body main .container1, body main .container2 {
   height: 100vh;
   overflow-y: scroll;
   padding: 80px 0;
+  width: 100%;
 }
 
 body main .container2 {
@@ -349,7 +351,8 @@ body main form {
   width: 100%;
   padding: 20px;
   border: 1px solid #00ccff;
-  background-color: rgba(255, 255, 255, 0.774);
+  background-color: rgba(255, 255, 255, 0.623);
+  margin: 0 auto;
   margin-bottom: 50px;
 }
 
@@ -372,6 +375,14 @@ body main form .spin {
           animation-timing-function: ease-in-out;
 }
 
+body main form h1 {
+  text-align: center;
+  color: green;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 10px 0;
+  font-size: 25px;
+}
+
 body main form h3 {
   text-align: center;
   color: black;
@@ -384,6 +395,12 @@ body main form .form-group label {
   width: auto;
   font-size: 18px;
   padding: 10px 0;
+}
+
+body main form .form-group label i {
+  font-size: 14px;
+  color: blue;
+  display: block;
 }
 
 body main form .form-group input {
