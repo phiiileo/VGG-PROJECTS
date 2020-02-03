@@ -1,0 +1,36 @@
+body {
+  padding: 50px 7%;
+  h1 {
+    text-align: center;
+  }
+  section {
+    border: 2px solid black;
+    padding: 10px 20px;
+
+    .badge {
+      font-weight: bold;
+      font-weight: 20px;
+    }
+    code{
+        display: block;
+        background-color: grey;
+        color: white;
+        padding: 10px 20px;
+        margin: 20px 0;
+    }
+
+    pre{
+        word-break: break-all;
+    }
+    button {
+      background-color: green;
+      color: white;
+      padding: 10px 30px;
+      border: 1px solid green;
+      font-size: 15px;
+      display: block;
+      margin: 20px 0;
+      cursor: pointer;
+    }
+  }
+}
