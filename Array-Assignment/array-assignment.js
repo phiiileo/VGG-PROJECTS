@@ -1,21 +1,31 @@
+//Arrange the color in order
 function arrangeColor() {
     const color = ["Blue ", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow "];
     const suffixes = ["th", "st", "nd", "rd"];
 
     console.log("Q1=============================Q1")
 
+    //Go over individual color
     color.map((color, index) => {
-
         let suffix;
         switch (index + 1) {
+            //Give color suffix 'st'
             case 1: suffix = suffixes[1]
                 break;
+
+            //Give color suffix 'nd'
             case 2: suffix = suffixes[2]
                 break;
+
+            //Give color suffix 'rd'            
             case 3: suffix = suffixes[3]
                 break;
+
+            //Give color suffix 'th'
             default: suffix = suffixes[0]
         }
+
+        // Output result
         console.log(`${index + 1 + suffix} choice is ${color}`)
 
     })
@@ -27,10 +37,11 @@ function arrangeColor() {
 function joinarray() {
     console.log("Q2=============================Q2")
 
+    //Join the array with different means
     const myColor = ["Red", "Green", "White", "Black"];
-    const joinArray = myColor.join(",")
-    const joinArray1 = myColor.join("+")
-    const joinArray2 = myColor.join("-")
+    const joinArray = myColor.join(",");
+    const joinArray1 = joinArray.repeat(1);
+    const joinArray2 = myColor.join("+");
     console.log(joinArray)
     console.log(joinArray1)
     console.log(joinArray2)
@@ -201,36 +212,37 @@ function Sort() {
             salary: 50000
         }
     ]
+
+    //Get employee that are web developers
     let webdev = employees.filter(person => {
         return person.Job == "Web Developer"
-        // console.log(person.Job)
     })
+    //Get employees that are web developer from Nigeria
     let webdev_fromNIG = employees.filter(person => {
         return person.Job == "Web Developer" && person.Country == "Nigeria"
-        // console.log(person.Job)
     })
+    //Get employees that are below 20 years
     let ageBelow20 = employees.filter(person => {
         return person.age < 20
-        // console.log(person.Job)
     })
+    //Get active employess
     let Active_employee = employees.filter(person => {
         return person.active == true
-        // console.log(person.Job)
     })
 
-    let dev = employees.filter(person => {
-        return person.Job == "Web Developer"
-    }).map(person => {
+    //Get Salaries of web developers in a sorted format
+    let dev = webdev.map(person => {
         return person.salary
     }).sort((a, b) => { return a - b })
 
+    //Get the highest salary 
     let highestpaidsa = dev[dev.length - 1];
 
+    //Get the web developer with the highest paid  salary
     let highestpaid = employees.filter(dev => {
         return dev.salary == highestpaidsa
     })
-
-    // let highestpaid = sortedSalary[sortedSalary.length-1]
+    //Output result
     console.log(`a.) => Employees that are web developers: `, webdev)
     console.log(`b.) => Employees that are web developers and from Nigeria: `, webdev_fromNIG)
     console.log(`c.) => Employees that are below 20 years: `, ageBelow20)
