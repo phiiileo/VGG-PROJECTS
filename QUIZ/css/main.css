@@ -6,6 +6,28 @@
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
+@-webkit-keyframes animate {
+  0% {
+    -webkit-box-shadow: 5px 5px 50px orange;
+            box-shadow: 5px 5px 50px orange;
+  }
+  100% {
+    -webkit-box-shadow: 5px 5px 50px darkcyan;
+            box-shadow: 5px 5px 50px darkcyan;
+  }
+}
+
+@keyframes animate {
+  0% {
+    -webkit-box-shadow: 5px 5px 50px orange;
+            box-shadow: 5px 5px 50px orange;
+  }
+  100% {
+    -webkit-box-shadow: 5px 5px 50px darkcyan;
+            box-shadow: 5px 5px 50px darkcyan;
+  }
+}
+
 body {
   background-image: url("../bg.jpg");
   background-size: cover;
@@ -46,20 +68,21 @@ body .container .userReg, body .container .quizPage, body .container .questions,
 }
 
 body .container .userReg h1, body .container .quizPage h1, body .container .questions h1, body .container .result h1, body .container .review h1 {
+  padding-top: 150px;
   margin-bottom: 50px;
   font-size: 30px;
 }
 
 body .container .userReg label, body .container .quizPage label, body .container .questions label, body .container .result label, body .container .review label {
-  font-size: 20px;
+  font-size: 25px;
 }
 
 body .container .userReg input, body .container .quizPage input, body .container .questions input, body .container .result input, body .container .review input {
   display: block;
   margin: 10px auto;
   padding: 9px 20px;
-  width: 90%;
-  font-size: 18px;
+  width: 300px;
+  font-size: 20px;
   border-radius: 5px;
   border: 1px solid white;
 }
@@ -76,6 +99,17 @@ body .container .userReg button, body .container .quizPage button, body .contain
   border-radius: 5px;
 }
 
+body .container .userReg button.animate, body .container .quizPage button.animate, body .container .questions button.animate, body .container .result button.animate, body .container .review button.animate {
+  -webkit-animation-name: animate;
+          animation-name: animate;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 2;
+          animation-iteration-count: 2;
+}
+
 body .container .userReg button:hover, body .container .quizPage button:hover, body .container .questions button:hover, body .container .result button:hover, body .container .review button:hover {
   background-color: transparent;
   color: white;
@@ -89,6 +123,7 @@ body .container .quizPage {
 
 body .container .quizPage p {
   font-style: italic;
+  font-size: 20px;
 }
 
 body .container .quizPage #time {
@@ -120,6 +155,27 @@ body .container .questions .questionWrapper {
 
 body .container .questions .questionWrapper .question {
   margin: 10px 0;
+  border: 1px solid white;
+  padding: 10px;
+}
+
+body .container .questions .questionWrapper .option-group {
+  padding: 0 15px;
+}
+
+body .container .questions .questionWrapper .option-group p {
+  margin: 5px 0;
+  font-size: 20px;
+  border: 1px solid transparent;
+}
+
+body .container .questions .questionWrapper .option-group p:hover, body .container .questions .questionWrapper .option-group p.active {
+  padding-left: 20px;
+  border-color: white;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  -webkit-box-shadow: 5px 5px 10px white;
+          box-shadow: 5px 5px 10px white;
 }
 
 body .container .questions .questionWrapper .option-group input {
@@ -131,10 +187,30 @@ body .container .questions .questionWrapper .option-group input {
 
 body .container .questions .action {
   margin: 30px 0;
+  text-align: center;
 }
 
 body .container .result {
   display: none;
+}
+
+body .container .result div {
+  border: 2px solid white;
+  padding: 30px;
+  -webkit-box-shadow: 5px 5px 10px white;
+          box-shadow: 5px 5px 10px white;
+  font-size: 25px;
+}
+
+body .container .result div #score {
+  background-color: white;
+  color: red;
+  padding: 10px 20px;
+  display: block;
+  width: 100px;
+  margin: 10px auto;
+  text-align: center;
+  border-radius: 5px;
 }
 
 body .container .review {

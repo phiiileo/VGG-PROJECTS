@@ -42,6 +42,72 @@ const MyQuestions = [
             { option: "D", text: "Bffielo" }
         ],
         answer: "D"
+    },
+    {
+        id: 5,
+        question: "fgfgfgfgf.",
+        options: [
+            { option: "A", text: " other fhfhfh" },
+            { option: "B", text: "Jakfffue" },
+            { option: "C", text: "Frfififank" },
+            { option: "D", text: "Bffielo" }
+        ],
+        answer: "D"
+    },
+    {
+        id: 6,
+        question: "fgfgfgfgf.",
+        options: [
+            { option: "A", text: " other fhfhfh" },
+            { option: "B", text: "Jakfffue" },
+            { option: "C", text: "Frfififank" },
+            { option: "D", text: "Bffielo" }
+        ],
+        answer: "D"
+    },
+    {
+        id: 7,
+        question: "fgfgfgfgf.",
+        options: [
+            { option: "A", text: " other fhfhfh" },
+            { option: "B", text: "Jakfffue" },
+            { option: "C", text: "Frfififank" },
+            { option: "D", text: "Bffielo" }
+        ],
+        answer: "D"
+    },
+    {
+        id: 8,
+        question: "fgfgfgfgf.",
+        options: [
+            { option: "A", text: " other fhfhfh" },
+            { option: "B", text: "Jakfffue" },
+            { option: "C", text: "Frfififank" },
+            { option: "D", text: "Bffielo" }
+        ],
+        answer: "D"
+    },
+    {
+        id: 9,
+        question: "fgfgfgfgf.",
+        options: [
+            { option: "A", text: " other fhfhfh" },
+            { option: "B", text: "Jakfffue" },
+            { option: "C", text: "Frfififank" },
+            { option: "D", text: "Bffielo" }
+        ],
+        answer: "D"
+    },
+    {
+        id: 10,
+        question: "fgfgfgfgf.",
+        options: [
+            { option: "A", text: " other fhfhfh" },
+            { option: "B", text: "Jakfffue" },
+            { option: "C", text: "Frfififank" },
+            { option: "D", text: "Bffielo" }
+        ],
+        answer: "D"
     }
 
 ]

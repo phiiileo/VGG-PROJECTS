@@ -65,6 +65,7 @@ buttons.forEach(button => {
     //Next Button
     else if (button.id == "next") {
         button.addEventListener("click", () => {
+            //Get selected option and store if correct
             let myoptions = document.querySelectorAll(".option-group input");
             myoptions.forEach(opt => {
                 (opt.checked == true && Questions[questionNumber - 1].answer == opt.value) ? Userscore.push(1) : null
@@ -116,6 +117,12 @@ buttons.forEach(button => {
             document.querySelector(".Q").appendChild(quest1, button1);
         })
     }
+
+    button.addEventListener("click", ()=>{
+        button.classList.add("animate")
+        setTimeout(()=>{ button.classList.remove("animate")},500)
+       
+    })
 })
 
 
@@ -128,7 +135,18 @@ function getQuestion(question_num) {
     currentQuestion.options.map(value => {
         options += `<p><input type="radio" name=${currentQuestion.id} value=${value.option} id=""> ${value.text}</p>`
         option.innerHTML = options
-    })
+    });
+    let groupOption = option.children
+
+    for (let i = 0; i < groupOption.length; i++) {
+        groupOption[i].addEventListener("click", function () {
+            for (let j = 0; j < groupOption.length; j++) {
+                groupOption[j].classList.remove("active")
+            }
+            this.children[0].checked = true;
+            this.classList.add("active")
+        })
+    }
 }
 
 function setCountdown(min) {
@@ -157,18 +175,30 @@ function setCountdown(min) {
         }
 
     }
-myInterval = setInterval(getTime, 1000)
+    myInterval = setInterval(getTime, 1000)
 
 }
 function submit() {
     questions.style.height = "0"
     result.style.display = "block"
-    Percentscore = (Userscore.length / Questions.length) * 100 + "%";
-    score.innerHTML = Percentscore
+    Percentscore = (Userscore.length / Questions.length) * 100;
+    if (Percentscore < 40) {
+        score.style.color = "red"
+    } else if (Percentscore < 70) {
+        score.style.color = "orange"
+    }
+    else {
+        score.style.color = "green"
+
+    }
+    score.innerHTML = Percentscore + "%"
+
     console.log(Userscore.length);
     clearInterval(myInterval)
 
 }
 let Questions = JSON.parse(localStorage.getItem("Questions"))
-console.log(Questions)
-document.querySelector("#totalQuestion").innerHTML = Questions.length
+// console.log(Questions)
+document.querySelector("#totalQuestion").innerHTML = Questions.length;
+
+
