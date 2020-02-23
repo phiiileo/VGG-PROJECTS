@@ -1,0 +1,118 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+$bg_color: rgb(10, 10, 173);
+$brand_color: skyblue;
+body {
+    background-image: url("../bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(2, 53, 59, 0.918);
+   // overflow: hidden;
+  .container {
+    background-color: rgba(8, 67, 75, 0.712);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-top: 50px;
+
+    .userReg {
+      color: white;
+      height: 100vh;
+      width: 100%;
+      padding: 0 7%;
+      text-align: center;
+      overflow: hidden;
+      transition: all 0.5s;
+      h1 {
+        margin-bottom: 50px;
+        font-size: 30px;
+      }
+
+      label {
+        font-size: 20px;
+      }
+      input {
+        display: block;
+        margin: 10px auto;
+        padding: 9px 20px;
+        width: 90%;
+        font-size: 18px;
+        border-radius: 5px;
+        border: 1px solid white;
+      }
+      button {
+        border: 1px solid white;
+        background-color: white;
+        width: 150px;
+        font-size: 20px;
+        padding: 5px 0;
+        cursor: pointer;
+        display: inline-block;
+        margin: 10px;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: transparent;
+        color: white;
+        box-shadow: 2px 2px 10px white;
+      }
+    }
+    .quizPage {
+      @extend .userReg;
+      display: none;
+      p {
+        font-style: italic;
+      }
+      #time {
+        font-size: 30px;
+        margin: 10px 0;
+        font-weight: bold;
+      }
+    }
+    .questions {
+      @extend .userReg;
+      display: none;
+      text-align: left;
+
+      .lead {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 50px;
+      }
+      .questionWrapper {
+          height: 300px;
+        .question {
+          margin: 10px 0;
+        }
+        .option-group {
+          input {
+            width: auto;
+            display: inline-block;
+            cursor: pointer;
+            margin-right: 15px;
+          }
+        }
+      }
+      .action {
+        margin: 30px 0;
+      }
+    }
+    .result{
+        @extend .userReg;
+        display: none;
+    }
+    .review{
+        @extend .userReg;
+        display: none;
+    }
+  }
+}

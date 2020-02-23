@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VGG QUIZ</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./questions.js"></script>
+</head>
+
+<body>
+    <section class="container">
+        <section class="userReg">
+            <h1>Welcome to VGG Quick Quiz</h1>
+            <form>
+                <label>Enter your nickname to start:</label>
+                <input type="text" name="username" placeholder="Enter your nickname" id="username">
+                <button id="start">START</button>
+            </form>
+        </section>
+        <section class="quizPage">
+            <h1>Welcome <span class="_username">username</span>,</h1>
+            <p>This quiz will take only 10 minutes. Enjoy!</p>
+            <p id="time">10:00</p>
+            <button id="go_back">Go back</button>
+            <button id="begin">BEGIN</button>
+        </section>
+        <section class="questions">
+            <div class="lead">
+                <p id="countdown">Time: 10:00</p>
+                <p id="progress"><span id="current">1</span> of <span id="totalQuestion">10</span></p>
+            </div>
+            <div class="questionWrapper">
+                <h3 class="question">question placeholder</h3>
+                <div class="option-group"></div>
+            </div>
+            <div class="action">
+                <button id="previous">Quit</button>
+                <button id="next">Next</button>
+            </div>
+        </section>
+        <section class="result">
+            <h3><span class="_username">username</span>, Your grade is <span id="score">0%</span></h3>
+            <!-- <button id="review">Review </button> -->
+        </section>
+        <section class="review">
+            Let's review this
+            <div class="Q"></div>
+        </section>
+    </section>
+</body>
+<script src="./main.js"></script>
+
+</html>

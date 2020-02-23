@@ -1,0 +1,143 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+body {
+  background-image: url("../bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(2, 53, 59, 0.918);
+}
+
+body .container {
+  background-color: rgba(8, 67, 75, 0.712);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  padding-top: 50px;
+}
+
+body .container .userReg, body .container .quizPage, body .container .questions, body .container .result, body .container .review {
+  color: white;
+  height: 100vh;
+  width: 100%;
+  padding: 0 7%;
+  text-align: center;
+  overflow: hidden;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+body .container .userReg h1, body .container .quizPage h1, body .container .questions h1, body .container .result h1, body .container .review h1 {
+  margin-bottom: 50px;
+  font-size: 30px;
+}
+
+body .container .userReg label, body .container .quizPage label, body .container .questions label, body .container .result label, body .container .review label {
+  font-size: 20px;
+}
+
+body .container .userReg input, body .container .quizPage input, body .container .questions input, body .container .result input, body .container .review input {
+  display: block;
+  margin: 10px auto;
+  padding: 9px 20px;
+  width: 90%;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+body .container .userReg button, body .container .quizPage button, body .container .questions button, body .container .result button, body .container .review button {
+  border: 1px solid white;
+  background-color: white;
+  width: 150px;
+  font-size: 20px;
+  padding: 5px 0;
+  cursor: pointer;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+body .container .userReg button:hover, body .container .quizPage button:hover, body .container .questions button:hover, body .container .result button:hover, body .container .review button:hover {
+  background-color: transparent;
+  color: white;
+  -webkit-box-shadow: 2px 2px 10px white;
+          box-shadow: 2px 2px 10px white;
+}
+
+body .container .quizPage {
+  display: none;
+}
+
+body .container .quizPage p {
+  font-style: italic;
+}
+
+body .container .quizPage #time {
+  font-size: 30px;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+body .container .questions {
+  display: none;
+  text-align: left;
+}
+
+body .container .questions .lead {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+body .container .questions .questionWrapper {
+  height: 300px;
+}
+
+body .container .questions .questionWrapper .question {
+  margin: 10px 0;
+}
+
+body .container .questions .questionWrapper .option-group input {
+  width: auto;
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+body .container .questions .action {
+  margin: 30px 0;
+}
+
+body .container .result {
+  display: none;
+}
+
+body .container .review {
+  display: none;
+}
+/*# sourceMappingURL=main.css.map */
