@@ -4,13 +4,13 @@
   box-sizing: border-box;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
-@keyframes animate{
-    0%{
-        box-shadow: 5px 5px 50px orange;
-    }
-    100%{
-        box-shadow: 5px 5px 50px darkcyan;
-    }
+@keyframes animate {
+  0% {
+    box-shadow: 5px 5px 50px orange;
+  }
+  100% {
+    box-shadow: 5px 5px 50px darkcyan;
+  }
 }
 $bg_color: rgb(10, 10, 173);
 $brand_color: skyblue;
@@ -31,7 +31,7 @@ body {
     padding-top: 50px;
 
     .userReg {
-    //   display: none;
+      //   display: none;
       color: white;
       height: 100vh;
       width: 100%;
@@ -68,12 +68,11 @@ body {
         margin: 10px;
         border-radius: 5px;
       }
-      button.animate{
+      button.animate {
         animation-name: animate;
-        animation-duration: .5s;
+        animation-duration: 0.5s;
         animation-iteration-count: 1;
         animation-iteration-count: 2;
-
       }
       button:hover {
         background-color: transparent;
@@ -114,19 +113,19 @@ body {
           padding: 10px;
         }
         .option-group {
-            padding: 0 15px;
-            p{
-                margin: 5px 0;
-                font-size: 20px;
-                border:1px solid transparent;
-
-            }
-            p:hover, p.active{
-                padding-left: 20px;
-                border-color: white;
-                transition: all .5s;
-                box-shadow: 5px 5px 10px white;
-            }
+          padding: 0 15px;
+          p {
+            margin: 5px 0;
+            font-size: 20px;
+            border: 1px solid transparent;
+          }
+          p:hover,
+          p.active {
+            padding-left: 20px;
+            border-color: white;
+            transition: all 0.5s;
+            box-shadow: 5px 5px 10px white;
+          }
           input {
             width: auto;
             display: inline-block;
@@ -150,21 +149,81 @@ body {
         box-shadow: 5px 5px 10px white;
         font-size: 25px;
 
-        #score{
-            background-color: white;
-            color: red;
-            padding: 10px 20px;
-            display: block;
-            width: 100px;
-            margin: 10px auto;
-            text-align: center;
-            border-radius: 5px;
+        #score {
+          background-color: white;
+          color: red;
+          padding: 10px 20px;
+          display: block;
+          width: 100px;
+          margin: 10px auto;
+          text-align: center;
+          border-radius: 5px;
         }
       }
     }
     .review {
       @extend .userReg;
       display: none;
+
+      .lead {
+        font-size: 15px;
+        padding: 10px 0;
+        font-weight: bold;
+      }
+
+      .question {
+        margin: 10px 0;
+        border: 1px solid white;
+        padding: 10px;
+        text-align: left;
+      }
+      .option-group {
+        padding: 0 15px;
+        text-align: left;
+        margin: 20px 0;
+
+        p {
+          margin: 5px 0;
+          font-size: 20px;
+          border: 1px solid transparent;
+        }
+        p:hover,
+        p.active {
+          padding-left: 20px;
+          border-color: white;
+          transition: all 0.5s;
+          box-shadow: 5px 5px 10px white;
+        }
+        input {
+          width: auto;
+          display: inline-block;
+          cursor: pointer;
+          margin-right: 15px;
+        }
+      }
+      .reviewAnswer {
+        text-align: left;
+        margin: 20px 0;
+        padding: 20px;
+        border: 1px solid darkcyan;
+        border-radius: 20px;
+        box-shadow: 8px 8px 7px darkcyan;
+        background-color: whitesmoke;
+        color: black;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+        font-size: 20px;
+        height: 150px;
+      }
+    }
+    .appreciate{
+      @extend .userReg;
+      font-size: 25px;
+      display: none;
+
+    }
+    .action {
+      margin: 30px 0;
+      text-align: center;
     }
   }
 }

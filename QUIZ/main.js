@@ -14,11 +14,28 @@ let option = document.querySelector(".option-group")
 let optionValues = document.querySelector(".option-group")
 let score = document.querySelector("#score")
 
+//REVIEW QUESTION PARAMETERS
+const Qreview = document.querySelector(".review")
+let RQuestion = Qreview.querySelector(".question");
+let RCurrent = Qreview.querySelector("#current");
+let ROptionGroup = Qreview.querySelector(".option-group");
+let R_message = Qreview.querySelector(".explanation p");
+let reviewQ_num = 1;
+let R_next = Qreview.querySelector("#R_next");
+let R_close_prev = Qreview.querySelector("#close")
+let R_option = Qreview.querySelector(".option-group");
+let appreciate = document.querySelector(".appreciate");
+
+
+//Quiz questions
+
+
 //environment virables
 let questionNumber;
 let Userscore = [];
 let countdown;
 let myInterval;
+
 
 //Get all buttons
 const buttons = document.querySelectorAll('button');
@@ -29,8 +46,7 @@ buttons.forEach(button => {
         button.addEventListener("click", (event) => {
             event.preventDefault();
             const username = document.querySelector("#username").value;
-            if (username == "") { }
-            else {
+            if (username == "") {} else {
                 _username.forEach(user => {
                     user.innerHTML = username;
                     user.style.textTransform = "capitalize";
@@ -68,19 +84,26 @@ buttons.forEach(button => {
             //Get selected option and store if correct
             let myoptions = document.querySelectorAll(".option-group input");
             myoptions.forEach(opt => {
-                (opt.checked == true && Questions[questionNumber - 1].answer == opt.value) ? Userscore.push(1) : null
+                if (opt.checked == true && Questions[questionNumber - 1].answer == opt.value) {
+                    Userscore.push(1);
+                    const sam = opt.value;
+                    StoreQuestion[questionNumber - 1].userAnswer = sam;;
+                } else if (opt.checked == true) {
+                    const sam = opt.value
+
+                    StoreQuestion[questionNumber - 1].userAnswer = sam;;
+                } else {}
 
             })
             //Submit
             if (questionNumber >= Questions.length) {
                 submit()
-            }
-            else {
+            } else {
                 ++questionNumber;
                 getQuestion(questionNumber);
                 current_progress.innerHTML = questionNumber
                 previous.innerHTML = "Previous";
-                (questionNumber == Questions.length) ? next.innerHTML = "Submit" : null;
+                (questionNumber == Questions.length) ? next.innerHTML = "Submit": null;
             }
 
         })
@@ -95,39 +118,68 @@ buttons.forEach(button => {
                 questions.style.height = "0"
                 clearInterval(myInterval)
 
-            }
-            else {
+            } else {
                 --questionNumber
                 current_progress.innerHTML = questionNumber
                 getQuestion(questionNumber);
                 next.innerHTML = "Next";
-                (questionNumber == 1) ? previous.innerHTML = "Quit" : previous.innerHTML = "Previous"
+                (questionNumber == 1) ? previous.innerHTML = "Quit": previous.innerHTML = "Previous"
             }
         })
-    }
-    else if (button.id == "review") {
+    } else if (button.id == "review") {
         button.addEventListener("click", () => {
-            console.log("review");
             result.style.height = "0"
             review.style.display = "block"
-            let quest = document.querySelector(".questionWrapper");
-            let button1 = document.querySelector(".action");
-            const quest1 = quest.cloneNode(true);
-            console.log(quest1)
-            document.querySelector(".Q").appendChild(quest1, button1);
+            reviewQuestions(reviewQ_num)
+
+
         })
+    } else if (button.id == "close") {
+        button.addEventListener("click", () => {
+            //Quiz
+            if (reviewQ_num <= 1) {
+                userReg.style.height = "100vh"
+                // rev.style.display = "none";
+                // questions.style.height = "0"
+                // clearInterval(myInterval)
+
+            } else {
+                --reviewQ_num
+                RQuestion.innerHTML = questionNumber
+                reviewQuestions(reviewQ_num);
+                R_next.innerHTML = "Next";
+                (reviewQ_num == 1) ? R_close_prev.innerHTML = "Close": R_close_prev.innerHTML = "Previous"
+            }
+        })
+    } else if (button.id = "R_next") {
+        button.addEventListener("click", () => {
+            if (reviewQ_num >= StoreQuestion.length) {
+                appreciate.style.display = "block"
+                Qreview.style.height = '0'
+            } else {
+                ++reviewQ_num;
+                reviewQuestions(reviewQ_num);
+                RCurrent.innerHTML = reviewQ_num
+                R_close_prev.innerHTML = "Previous";
+                (reviewQ_num == StoreQuestion.length) ? R_next.innerHTML = "Finish": null;
+            }
+        })
+    } 
+    else if (button.id = "go_home") {
+        console.log(1)
+        appreciate.style.height = "0";
+        userReg.style.height = "100vh"
     }
 
-    button.addEventListener("click", ()=>{
+    button.addEventListener("click", () => {
         button.classList.add("animate")
-        setTimeout(()=>{ button.classList.remove("animate")},500)
-       
+        setTimeout(() => {
+            button.classList.remove("animate")
+        }, 500)
+
     })
 })
 
-
-
-//Quiz questions
 function getQuestion(question_num) {
     let options = '';
     currentQuestion = Questions[question_num - 1]
@@ -149,6 +201,8 @@ function getQuestion(question_num) {
     }
 }
 
+
+//SET countdown
 function setCountdown(min) {
     let minutes = min - 1;
     let seconds = 60;
@@ -161,7 +215,6 @@ function setCountdown(min) {
                 minutes--
             }
             if (minutes < 0) {
-                console.log("Time Up")
                 submit()
             } else {
                 let Sec = seconds;
@@ -175,9 +228,12 @@ function setCountdown(min) {
         }
 
     }
+    //START countdown
     myInterval = setInterval(getTime, 1000)
 
 }
+
+//Submit answers
 function submit() {
     questions.style.height = "0"
     result.style.display = "block"
@@ -186,19 +242,42 @@ function submit() {
         score.style.color = "red"
     } else if (Percentscore < 70) {
         score.style.color = "orange"
-    }
-    else {
+    } else {
         score.style.color = "green"
 
     }
     score.innerHTML = Percentscore + "%"
 
-    console.log(Userscore.length);
+    //Remove interval on question review
     clearInterval(myInterval)
 
 }
+
+//Get reviewd question
+function reviewQuestions(reviewQ_num) {
+    RCurrent.innerHTML = reviewQ_num
+    let options = '';
+    currentQuestion = StoreQuestion[reviewQ_num - 1]
+    RQuestion.innerHTML = currentQuestion.question;
+    currentQuestion.options.map(value => {
+        options += `<p><input type="radio" id=${value.option} value=${value.option} id=""> ${value.text}</p>`
+        ROptionGroup.innerHTML = options;
+        // (value.option == currentQuestion.userAnswer) ? option.checked = true : option.checked = false;
+        R_message.innerHTML = currentQuestion.review;
+    });
+    let groupOption = R_option.children
+
+    for (let i = 0; i < groupOption.length; i++) {
+        let r_opt = (groupOption[i].children[0]);
+        (r_opt.value == currentQuestion.userAnswer) ? r_opt.checked = true: null;
+    }
+
+}
+
+//Get question from local storage
 let Questions = JSON.parse(localStorage.getItem("Questions"))
 // console.log(Questions)
 document.querySelector("#totalQuestion").innerHTML = Questions.length;
-
-
+Qreview.querySelector("#totalQuestion").innerHTML = Questions.length
+let StoreQuestion = Questions;
+reviewQuestions(reviewQ_num)
