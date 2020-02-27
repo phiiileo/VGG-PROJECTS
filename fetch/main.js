@@ -1,4 +1,3 @@
-
 //get button
 const fetch_btn = document.querySelector("#fetch");
 //get input
@@ -10,6 +9,7 @@ const resultContainer = document.querySelector("#result")
 
 //attach click event to fecth button
 fetch_btn.addEventListener("click", (event) => {
+    user_Array =[]
     event.preventDefault();
     //always set the the result container empty after each click
     resultContainer.innerHTML = ""
@@ -17,10 +17,13 @@ fetch_btn.addEventListener("click", (event) => {
     //remove white pace from inputs
     let Users = usersnames.value.replace(/ /g, "");
     const userArray = Users.split(",");
-
     //call get user function for each inputed user
     userArray.map(user => {
-        getUsers(user.trim())
+        if (user == "") {
+         usersnames.placeholder = "___________________          Input at least a username"
+        } else {
+            getUsers(user.trim())
+        }
     })
     console.log(user_Array)
 })

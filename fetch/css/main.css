@@ -9,6 +9,33 @@ body {
   margin: 0 auto;
 }
 
+body form h5 {
+  text-align: center;
+}
+
+body form h6 {
+  color: blue;
+}
+
+body form button {
+  background-color: green;
+  color: white;
+  border: 1px solid green;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+body form button:hover {
+  background-color: orange;
+  border-color: orange;
+}
+
+body form button:active {
+  background-color: blue;
+  border-color: blue;
+}
+
 body #result {
   min-width: 300px;
   max-width: 600px;
