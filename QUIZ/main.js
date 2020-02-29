@@ -67,7 +67,7 @@ buttons.forEach(button => {
             questions.style.height = "100vh"
             questionNumber = 1
             getQuestion(questionNumber);
-            setCountdown(10)
+            setCountdown(20)
 
         })
     }

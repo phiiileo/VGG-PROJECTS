@@ -9,7 +9,7 @@ const resultContainer = document.querySelector("#result")
 
 //attach click event to fecth button
 fetch_btn.addEventListener("click", (event) => {
-    user_Array =[]
+    user_Array = []
     event.preventDefault();
     //always set the the result container empty after each click
     resultContainer.innerHTML = ""
@@ -20,7 +20,7 @@ fetch_btn.addEventListener("click", (event) => {
     //call get user function for each inputed user
     userArray.map(user => {
         if (user == "") {
-         usersnames.placeholder = "___________________          Input at least a username"
+            usersnames.placeholder = "___________________          Input at least a username"
         } else {
             getUsers(user.trim())
         }
@@ -35,22 +35,19 @@ async function getUsers(g_user) {
         const user = await fetch(`https://api.github.com/users/${g_user}`);
         const result = await user.json();
         const Data = result
-
         //store gotten user in an array
-        user_Array.push(Data);
+        // console.log(Data.message)
         num++
-        if (Data.name == false) {} else {
-            resultContainer.innerHTML += card(g_user, Data, num)
-            //Get repos number for user
-            fetch(Data.repos_url).then(val => {
-                    return val.json()
-                })
-                .then(repo => {
-                    //set the number into the user interface
-                    let p = document.getElementById(Data.login);
-                    p.innerHTML += repo.length
-                })
+        if (Data.message == "Not Found") {
+            user_Array.push("NULL");
+        } else {
+            user_Array.push(Data);
         }
+        resultContainer.innerHTML += card(g_user, Data, num)
+        //Get repos number for user
+        let p = document.getElementById(Data.login);
+        p.innerHTML += Data.public_repos
+
     } catch (err) {
         console.log(err)
     }
@@ -59,7 +56,7 @@ async function getUsers(g_user) {
 //User interface template
 function card(finduser, user, num) {
     //error interface
-    if (user.name == undefined) {
+    if (user.login == null) {
         return (
             `<section class="card">
         <div class="img-container">
