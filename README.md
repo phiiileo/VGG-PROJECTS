@@ -6,3 +6,4 @@
 
 #Javascript QUIZ Assignemnt https://phiiileo.github.io/VGG-PROJECTS/QUIZ/
 
+#Javascript fetch Assignemnt https://phiiileo.github.io/VGG-PROJECTS/fetch/
