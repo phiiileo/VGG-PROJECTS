@@ -82,7 +82,7 @@ function card(finduser, user, num) {
             <p><b>Name:</b> ${user.name}</p>
             <p><b>GitHub Username:</b> ${user.login}</p>
             <p id=${user.login}><b>Numbers of public repo:</b> </p>
-            <p><a href=${user.html_url}><b>Visit Repo</b></a></p>
+            <p><a href=${user.html_url}><b>View More</b></a></p>
         </div>
     </section>`
         )
