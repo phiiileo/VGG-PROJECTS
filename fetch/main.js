@@ -49,6 +49,7 @@ async function getUsers(g_user) {
         p.innerHTML += Data.public_repos
 
     } catch (err) {
+       resultContainer.innerHTML += `<p style="color:red; border-bottom: 1px solid red">Failed to fetch User ${g_user}</p>`
         console.log(err)
     }
 }
